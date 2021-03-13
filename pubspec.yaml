@@ -1,6 +1,5 @@
-name: my_weather_app_flutter
+name: weather
 description: weather app to study Flutter and Dart
-
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
@@ -13,8 +12,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-
-
   cupertino_icons: ^1.0.2
   geolocator: ^7.0.1
 
@@ -24,7 +21,6 @@ dev_dependencies:
     sdk: flutter
 
 flutter:
-
 
   uses-material-design: true
 

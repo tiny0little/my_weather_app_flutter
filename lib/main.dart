@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 
 void main() {
   runApp(MyWeatherApp());
@@ -12,6 +13,13 @@ class MyWeatherApp extends StatefulWidget {
 class _MyWeatherAppState extends State<MyWeatherApp> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return MaterialApp(
+      home: Scaffold(
+        body: Container(
+          alignment: Alignment.center,
+          child: Text(''),
+        ),
+      ),
+    );
   }
 }
