@@ -11,13 +11,33 @@ class MyWeatherApp extends StatefulWidget {
 }
 
 class _MyWeatherAppState extends State<MyWeatherApp> {
+  void getLocation() async {
+    Position currentPosition = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.lowest,
+        timeLimit: Duration(seconds: 3));
+    print(currentPosition);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getLocation();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         body: Container(
           alignment: Alignment.center,
-          child: Text(''),
+          child: TextButton(
+            style: TextButton.styleFrom(
+                primary: Colors.white, backgroundColor: Colors.teal),
+            onPressed: () {
+              getLocation();
+            },
+            child: Text('button'),
+          ),
         ),
       ),
     );
