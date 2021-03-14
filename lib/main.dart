@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'location.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+
+import 'services.dart';
 
 void main() {
   runApp(MyWeatherApp());
@@ -12,19 +14,29 @@ class MyWeatherApp extends StatefulWidget {
 
 class _MyWeatherAppState extends State<MyWeatherApp> {
   Location location = Location();
+  Weather weather = Weather();
 
   @override
   void initState() {
     super.initState();
-    location.getLocation();
+    getStarted();
+  }
+
+  void getStarted() async {
+    await location.getLocation();
+    await weather.getWeatherData(location.latitude, location.longitude);
+    print('temp: ' + weather.weatherData['main']['temp']);
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Container(
-          alignment: Alignment.center,
+        body: Center(
+          child: SpinKitDoubleBounce(
+            color: Colors.teal,
+            size: 100.0,
+          ),
         ),
       ),
     );
