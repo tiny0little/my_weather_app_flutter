@@ -24,8 +24,11 @@ class _MyWeatherAppState extends State<MyWeatherApp> {
 
   void getStarted() async {
     await location.getLocation();
-    await weather.getWeatherData(location.latitude, location.longitude);
-    print('temp: ' + weather.weatherData['main']['temp']);
+    await weather.getWeatherData(
+        location.latitude.toString(), location.longitude.toString());
+    print('city: ${weather.cityName}');
+    print('temp: ${weather.temperature}');
+    print('condition: ${weather.condition}');
   }
 
   @override
