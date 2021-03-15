@@ -4,13 +4,17 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'services.dart';
 
 class LoadingScreen extends StatefulWidget {
+  final String query;
+
+  LoadingScreen({this.query});
+
   @override
   _LoadingScreenState createState() => _LoadingScreenState();
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
-  Location location = Location();
   Weather weather = Weather();
+  Location location = Location();
 
   @override
   void initState() {
@@ -19,9 +23,15 @@ class _LoadingScreenState extends State<LoadingScreen> {
   }
 
   void getStarted() async {
-    await location.getLocation();
-    await weather.getWeatherData(
-        location.latitude.toString(), location.longitude.toString());
+    // if query defined we do not need device location
+    if (widget.query != null) {
+      await weather.getWeatherData(null, null, widget.query);
+    } else {
+      await location.getLocation();
+      await weather.getWeatherData(
+          location.latitude.toString(), location.longitude.toString(), null);
+    }
+
     print('city: ${weather.cityName}');
     print('temp: ${weather.temperature}');
     print('condition: ${weather.condition}');

@@ -28,12 +28,18 @@ class Weather {
   String cityName;
   int condition;
 
-  Future<void> getWeatherData(String lat, String lon) async {
-    var url = Uri.https('api.openweathermap.org', '/data/2.5/weather', {
-      'appid': '0f09ac41c5875f75012d28af5256d00c',
-      'lat': lat,
-      'lon': lon,
-    });
+  Future<void> getWeatherData(String lat, String lon, String q) async {
+    var url;
+    q == null
+        ? url = Uri.https('api.openweathermap.org', '/data/2.5/weather', {
+            'appid': '0f09ac41c5875f75012d28af5256d00c',
+            'lat': lat,
+            'lon': lon,
+          })
+        : url = Uri.https('api.openweathermap.org', '/data/2.5/weather', {
+            'appid': '0f09ac41c5875f75012d28af5256d00c',
+            'q': q,
+          });
 
     http.Response response = await http.get(url);
 
