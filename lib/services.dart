@@ -29,8 +29,8 @@ class Weather {
   int condition;
 
   Future<void> getWeatherData(String lat, String lon) async {
-    var url = Uri.https('samples.openweathermap.org', '/data/2.5/weather', {
-      'appid': 'b6907d289e10d714a6e88b30761fae22',
+    var url = Uri.https('api.openweathermap.org', '/data/2.5/weather', {
+      'appid': '0f09ac41c5875f75012d28af5256d00c',
       'lat': lat,
       'lon': lon,
     });
