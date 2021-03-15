@@ -18,10 +18,13 @@ class ResultingScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text('город: $cityName', textAlign: TextAlign.center),
-          Text('температура: $temperature', textAlign: TextAlign.center),
+          Text('city: $cityName', textAlign: TextAlign.center),
+          Text('temperature: ${temperature}°', textAlign: TextAlign.center),
           Text('condition: ' + getWeatherIcon(condition),
               textAlign: TextAlign.center),
+          SizedBox(height: 71),
+          TextField(),
+          TextButton(onPressed: () {}, child: Text('search'))
         ],
       ),
     );

@@ -59,7 +59,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
     return Scaffold(
       body: Center(
         child: SpinKitThreeBounce(
-          color: Colors.black38,
+          color: Colors.white54,
           size: 57,
         ),
       ),
