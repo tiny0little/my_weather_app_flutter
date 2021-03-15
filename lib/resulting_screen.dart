@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class ResultingScreen extends StatelessWidget {
+import 'loading_screen.dart';
+
+class ResultingScreen extends StatefulWidget {
   final String cityName;
   final int temperature;
   final int condition;
@@ -12,19 +14,44 @@ class ResultingScreen extends StatelessWidget {
       @required this.condition});
 
   @override
+  _ResultingScreenState createState() => _ResultingScreenState();
+}
+
+class _ResultingScreenState extends State<ResultingScreen> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text('city: $cityName', textAlign: TextAlign.center),
-          Text('temperature: ${temperature}°', textAlign: TextAlign.center),
-          Text('condition: ' + getWeatherIcon(condition),
-              textAlign: TextAlign.center),
-          SizedBox(height: 71),
-          TextField(),
-          TextButton(onPressed: () {}, child: Text('search'))
+          Text(widget.cityName),
+          Text('${widget.temperature}°'),
+          Text(
+            getWeatherIcon(widget.condition),
+            style: TextStyle(fontSize: 101),
+          ),
+          SizedBox(height: 51),
+          Container(
+            padding: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+            child: TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: "City",
+                ),
+                style: TextStyle(
+                  fontSize: 29,
+                  fontFamily: 'Erased_Typewriter',
+                ),
+                onSubmitted: (text) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => LoadingScreen(query: text)),
+                  );
+                }),
+          ),
+          // TextButton(onPressed: () {}, child: Text('search'))
         ],
       ),
     );

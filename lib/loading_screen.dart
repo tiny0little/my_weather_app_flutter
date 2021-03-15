@@ -33,15 +33,11 @@ class _LoadingScreenState extends State<LoadingScreen> {
           location.latitude.toString(), location.longitude.toString(), null);
     }
 
-    print('city: ${weather.cityName}');
-    print('temp: ${weather.temperature}');
-    print('condition: ${weather.condition}');
-
-    // Navigator.push(
-    //   context,
-    //   MaterialPageRoute(builder: (context) => SecondRoute()),
-    // );
-    //
+    if (weather.cityName == null) {
+      weather.cityName = 'unknown';
+      weather.temperature = 0;
+      weather.condition = 9999;
+    }
 
     Navigator.push(
       context,

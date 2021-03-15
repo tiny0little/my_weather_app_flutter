@@ -35,8 +35,7 @@ class Weather {
 
   Future<void> getWeatherData(String lat, String lon, String q) async {
     var url;
-    //
-    //
+
     q == null
         ? url = Uri.https('api.openweathermap.org', '/data/2.5/weather', {
             'appid': appid,

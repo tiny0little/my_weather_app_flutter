@@ -10,8 +10,7 @@ void main() {
             primary: Colors.white,
             elevation: 3,
             textStyle: TextStyle(
-              fontSize: 23,
-              fontWeight: FontWeight.bold,
+              fontSize: 29,
               fontFamily: 'Erased_Typewriter',
             ),
           ),
@@ -19,10 +18,10 @@ void main() {
         textTheme: TextTheme(
           bodyText2: TextStyle(
             color: Colors.white,
-            fontSize: 25,
+            fontSize: 37,
             fontFamily: 'Erased_Typewriter',
           ),
         ),
       ),
-      home: LoadingScreen()));
+      home: LoadingScreen(query: null)));
 }
