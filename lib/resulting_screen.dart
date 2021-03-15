@@ -18,11 +18,10 @@ class ResultingScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(
-            'city: $cityName',
-            textAlign: TextAlign.center,
-          ),
-          Text('condition: ' + getWeatherIcon())
+          Text('город: $cityName', textAlign: TextAlign.center),
+          Text('температура: $temperature', textAlign: TextAlign.center),
+          Text('condition: ' + getWeatherIcon(condition),
+              textAlign: TextAlign.center),
         ],
       ),
     );
@@ -46,17 +45,5 @@ String getWeatherIcon(int condition) {
     return '☁️';
   } else {
     return '🤷‍';
-  }
-}
-
-String getMessage(int temp) {
-  if (temp > 25) {
-    return 'It\'s 🍦 time';
-  } else if (temp > 20) {
-    return 'Time for shorts and 👕';
-  } else if (temp < 10) {
-    return 'You\'ll need 🧣 and 🧤';
-  } else {
-    return 'Bring a 🧥 just in case';
   }
 }
