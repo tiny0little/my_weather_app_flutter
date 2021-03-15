@@ -19,8 +19,8 @@ class Location {
 
       latitude = position.latitude;
       longitude = position.longitude;
-      print('получил координаты успешно');
-      print(position);
+      // print('получил координаты успешно');
+      // print(position);
     } catch (e) {
       print(e);
     }
@@ -35,6 +35,8 @@ class Weather {
 
   Future<void> getWeatherData(String lat, String lon, String q) async {
     var url;
+    //
+    //
     q == null
         ? url = Uri.https('api.openweathermap.org', '/data/2.5/weather', {
             'appid': appid,

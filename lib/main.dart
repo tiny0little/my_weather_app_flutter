@@ -2,7 +2,5 @@ import 'package:flutter/material.dart';
 import 'loading_screen.dart';
 
 void main() {
-  runApp(LoadingScreen(
-    query: 'Taganrog',
-  ));
+  runApp(MaterialApp(home: LoadingScreen()));
 }
