@@ -2,6 +2,11 @@ import 'package:http/http.dart' as http;
 import 'package:geolocator/geolocator.dart';
 import 'dart:convert';
 
+const appid = '0f09ac41c5875f75012d28af5256d00c';
+
+//
+//
+//
 class Location {
   double latitude;
   double longitude;
@@ -32,12 +37,12 @@ class Weather {
     var url;
     q == null
         ? url = Uri.https('api.openweathermap.org', '/data/2.5/weather', {
-            'appid': '0f09ac41c5875f75012d28af5256d00c',
+            'appid': appid,
             'lat': lat,
             'lon': lon,
           })
         : url = Uri.https('api.openweathermap.org', '/data/2.5/weather', {
-            'appid': '0f09ac41c5875f75012d28af5256d00c',
+            'appid': appid,
             'q': q,
           });
 
