@@ -51,7 +51,6 @@ class _ResultingScreenState extends State<ResultingScreen> {
                   );
                 }),
           ),
-          // TextButton(onPressed: () {}, child: Text('search'))
         ],
       ),
     );
