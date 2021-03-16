@@ -13,3 +13,8 @@ inspired by [londonappbrewery](https://www.appbrewery.co/)
 </table>
 
 
+### How to Import
+
+in Android Studio -> File -> New -> Project from Version Control
+
+
